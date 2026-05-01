@@ -1,0 +1,43 @@
+<div style="min-height: 100vh; background-color: #14181c; padding: 40px 32px">
+  <h1
+    style="
+      text-align: center;
+      color: #fff;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 32px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    "
+  >
+    🎬 Filmes
+  </h1>
+
+  <app-genre-filter [genres]="genres" (genresChange)="onGenresChange($event)" />
+
+  @if (loading) {
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+      color: #99aabb;
+    "
+  >
+    Carregando...
+  </div>
+  } @if (!loading) {
+  <div class="movies-grid">
+    @for (movie of movies; track movie.movieId) {
+    <app-movie-card [movie]="movie" />
+    }
+  </div>
+
+  <app-pagination
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (pageChange)="onPageChange($event)"
+  />
+  }
+</div>

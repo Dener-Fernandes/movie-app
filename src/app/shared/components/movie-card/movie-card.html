@@ -1,0 +1,8 @@
+<div class="movie-card">
+  <img [src]="movie.image" [alt]="movie.title" />
+  <div class="overlay">
+    <h2>{{ movie.title }}</h2>
+    <p>{{ movie.category }} • {{ movie.year }}</p>
+    <p class="rating">★ {{ movie.rating }}</p>
+  </div>
+</div>

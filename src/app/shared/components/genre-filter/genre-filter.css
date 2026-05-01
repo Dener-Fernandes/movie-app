@@ -1,0 +1,62 @@
+.filter-container {
+  background-color: #1c2228;
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.filter-label {
+  color: #99aabb;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.clear-btn {
+  background: none;
+  border: none;
+  color: #678;
+  font-size: 12px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+
+.clear-btn:hover {
+  color: #99aabb;
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.genre-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid #456;
+  background: transparent;
+  color: #99aabb;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.genre-btn:hover {
+  border-color: #99aabb;
+  color: #fff;
+}
+
+.genre-btn.active {
+  border-color: #00c030;
+  background: #00c030;
+  color: #fff;
+  font-weight: 700;
+}

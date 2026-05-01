@@ -1,0 +1,18 @@
+<div class="filter-container">
+  <div class="filter-header">
+    <span class="filter-label">Filtrar por gênero</span>
+    <button class="clear-btn" (click)="clear()">Limpar filtros</button>
+  </div>
+
+  <div class="genres">
+    @for (genre of genres(); track genre) {
+    <button
+      class="genre-btn"
+      [class.active]="isSelected(genre)"
+      (click)="toggle(genre)"
+    >
+      {{ genre }}
+    </button>
+    }
+  </div>
+</div>
