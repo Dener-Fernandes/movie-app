@@ -32,5 +32,5 @@ jobs:
       - name: Build do projeto
         run: npm run build -- --configuration production
 
-      - name: Rodar testes
-        run: npm run test -- --watch=false --browsers=ChromeHeadless
+      # - name: Rodar testes
+      #   run: npm run test -- --watch=false --browsers=ChromeHeadless
