@@ -1,0 +1,112 @@
+.page {
+  min-height: 100vh;
+  background-color: #14181c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.card {
+  background-color: #1c2228;
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 400px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.title {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  color: #678;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.field label {
+  color: #99aabb;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.field input {
+  background-color: #14181c;
+  border: 1px solid #2c3440;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.field input:focus {
+  border-color: #00c030;
+}
+
+.field input::placeholder {
+  color: #456;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.btn-submit {
+  width: 100%;
+  background-color: #00c030;
+  border: none;
+  padding: 12px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 12px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-submit:hover {
+  background-color: #00a828;
+}
+
+.login-link {
+  text-align: center;
+  color: #678;
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+.login-link button {
+  background: none;
+  border: none;
+  color: #00c030;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+}
+
+.login-link button:hover {
+  text-decoration: underline;
+}

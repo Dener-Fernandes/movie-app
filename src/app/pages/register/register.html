@@ -1,0 +1,79 @@
+<div class="page">
+  <div class="card">
+    <div class="header">
+      <h1 class="title">🎬 CriticWeb</h1>
+      <p class="subtitle">Crie sua conta</p>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <label for="inputNameId">Nome</label>
+        <input
+          id="inputNameId"
+          type="text"
+          formControlName="name"
+          placeholder="Seu nome completo"
+        />
+        @if (name?.invalid && name?.touched) { @if (name?.errors?.['required'])
+        {
+        <span class="error">Nome é obrigatório</span>
+        } @if (name?.errors?.['minlength']) {
+        <span class="error">Mínimo 3 caracteres</span>
+        } }
+      </div>
+
+      <div class="field">
+        <label for="inputEmailId">Email</label>
+        <input
+          id="inputEmailId"
+          type="email"
+          formControlName="email"
+          placeholder="Seu e-mail"
+        />
+        @if (email?.invalid && email?.touched) { @if
+        (email?.errors?.['required']) {
+        <span class="error">E-mail é obrigatório</span>
+        } @if (email?.errors?.['email']) {
+        <span class="error">E-mail inválido</span>
+        } }
+      </div>
+
+      <div class="field">
+        <label for="inputPasswordId">Senha</label>
+        <input
+          id="inputPasswordId"
+          type="password"
+          formControlName="password"
+          placeholder="Mínimo 8 caracteres"
+        />
+        @if (password?.invalid && password?.touched) { @if
+        (password?.errors?.['required']) {
+        <span class="error">Senha é obrigatória</span>
+        } @if (password?.errors?.['minlength']) {
+        <span class="error">Mínimo de 8 caracteres</span>
+        } }
+      </div>
+
+      <div class="field">
+        <label for="inputConfirmPasswordId">Confirmar senha</label>
+        <input
+          id="inputConfirmPasswordId"
+          type="password"
+          formControlName="confirmPassword"
+          placeholder="Confirme sua senha"
+        />
+        @if (confirmPassword?.touched &&
+        confirmPassword?.errors?.['passwordMismatch']) {
+        <span class="error">As senhas não coincidem</span>
+        }
+      </div>
+
+      <button type="submit" class="btn-submit">Criar conta</button>
+    </form>
+
+    <p class="login-link">
+      Já possui uma conta?
+      <button type="button" (click)="goToLogin()">Entrar</button>
+    </p>
+  </div>
+</div>

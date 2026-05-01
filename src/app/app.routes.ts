@@ -6,6 +6,11 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/movies/movies').then((m) => m.Movies),
   },
   {
+    path: 'register',
+    loadComponent: () =>
+      import('./pages/register/register').then((m) => m.Register),
+  },
+  {
     path: '**',
     redirectTo: '',
   },
