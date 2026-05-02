@@ -6,6 +6,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../core/services/auth.service';
+import { IUser } from '../../core/interfaces/user.interface';
 
 @Component({
   selector: 'app-register',
@@ -16,6 +18,7 @@ import { Router } from '@angular/router';
 export class Register {
   private fb = inject(FormBuilder);
   private router = inject(Router);
+  private authService = inject(AuthService);
 
   form: FormGroup = this.fb.group(
     {
@@ -34,6 +37,26 @@ export class Register {
     return password === confirmPassword ? null : { passwordMismatch: true };
   }
 
+  onSubmit(): void {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    } else {
+      this.authService.register(this.form.value as IUser).subscribe({
+        next: (response) => {
+          console.log('logado', response);
+        },
+        error: (error) => {
+          console.log('error', error);
+        },
+      });
+    }
+  }
+
+  goToLogin(): void {
+    this.router.navigate(['/login']);
+  }
+
   get name() {
     return this.form.get('name');
   }
@@ -48,18 +71,5 @@ export class Register {
 
   get confirmPassword() {
     return this.form.get('confirmPassword');
-  }
-
-  onSubmit(): void {
-    if (this.form.invalid) {
-      this.form.markAllAsTouched();
-      return;
-    } else {
-      console.log(this.form.value);
-    }
-  }
-
-  goToLogin(): void {
-    this.router.navigate(['/login']);
   }
 }
