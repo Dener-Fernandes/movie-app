@@ -1,0 +1,10 @@
+@if (visible && toast) {
+<div [class]="'toast ' + toast.type">
+  <div class="dot"></div>
+  <div class="toastContent">
+    <p class="toastTitle">{{getTitle()}}</p>
+    <p class="toastDescription">{{ toast.message }}</p>
+  </div>
+  <button class="closeToastButton" (click)="hide()">✕</button>
+</div>
+}

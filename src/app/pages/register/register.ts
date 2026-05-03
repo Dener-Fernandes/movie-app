@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { IUser } from '../../core/interfaces/user.interface';
+import { ToastService } from '../../core/services/toast.service';
 
 @Component({
   selector: 'app-register',
@@ -19,6 +20,8 @@ export class Register {
   private fb = inject(FormBuilder);
   private router = inject(Router);
   private authService = inject(AuthService);
+
+  private toastService = inject(ToastService);
 
   form: FormGroup = this.fb.group(
     {
@@ -47,7 +50,7 @@ export class Register {
           console.log('logado', response);
         },
         error: (error) => {
-          console.log('error', error);
+          this.toastService.showFromHttpError(error);
         },
       });
     }

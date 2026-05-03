@@ -1,3 +1,4 @@
+import { ToastService } from './../../core/services/toast.service';
 import { Component, inject, OnInit } from '@angular/core';
 import { MovieService } from '../../core/services/movie.service';
 import { IMovie, IMoviePage } from '../../core/interfaces/movie.interface';
@@ -13,6 +14,7 @@ import { MovieCard } from '../../shared/components/movie-card/movie-card';
 })
 export class Movies implements OnInit {
   private movieService = inject(MovieService);
+  private toastService = inject(ToastService);
 
   movies: IMovie[] = [];
   totalItems = 0;
@@ -54,8 +56,9 @@ export class Movies implements OnInit {
           this.totalPages = response.totalPages;
           this.loading = false;
         },
-        error: () => {
+        error: (error) => {
           this.loading = false;
+          this.toastService.showFromHttpError(error);
         },
       });
   }
